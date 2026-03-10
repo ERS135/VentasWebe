@@ -1,0 +1,79 @@
+/* ============================================================
+   CSS DE FRUTAS (AJUSTADO A MEDIDAS DE LICORES)
+   ============================================================ */
+
+.mercado-header {
+    position: relative;
+    height: 350px; /* Igual que licores */
+    background-color: #1b4332;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* Para evitar que el shape-divider se salga */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Eliminamos el padding-bottom de 50px para que el centrado sea idéntico */
+}
+
+.mercado-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    /* Gradiente ajustado para que tenga la misma intensidad que licores */
+    background: linear-gradient(45deg, rgba(27, 67, 50, 0.9) 0%, rgba(27, 67, 50, 0.4) 100%);
+    z-index: 1;
+}
+
+.mercado-header .header-content {
+    z-index: 2;
+    padding: 0 15px;
+    animation: fadeInUp 0.8s ease-out; /* Animación que ya tenías */
+}
+
+/* El divisor curvo blanco se mantiene pero se ajusta */
+.custom-shape-divider-bottom-1710000000 {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    line-height: 0; 
+    transform: rotate(180deg);
+    z-index: 2;
+}
+
+.custom-shape-divider-bottom-1710000000 svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 40px; /* Un poco más bajo para no comerse el texto */
+    fill: #fdfdfd; 
+}
+
+/* RESPONSIVO IGUALADO A LICORES */
+@media (max-width: 768px) {
+    .mercado-header { 
+        height: 250px; /* Misma altura que licores en móvil */
+    }
+    .mercado-header h1 { 
+        font-size: 2rem; /* Mismo tamaño de letra que licores en móvil */
+    }
+}
+
+/* Animación fadeInUp (Asegúrate de tenerla una sola vez) */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Clase para el título de sección con el verde */
+.titulo-seccion {
+    border-left: 6px solid #1b4332; 
+    padding-left: 15px;
+    line-height: 1.1;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 900 !important; /* Negritas resaltadas como pediste */
+    letter-spacing: 1px;
+}

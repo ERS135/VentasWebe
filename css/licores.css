@@ -1,0 +1,63 @@
+.fiesta-header {
+    position: relative;
+    height: 350px;
+    background: #0b0b0b;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(45deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.header-content { z-index: 2; padding: 0 15px; }
+.text-gold { color: #C5A059 !important; }
+.letter-spacing-2 { letter-spacing: 4px; font-size: 0.9rem; }
+
+.divider {
+    width: 80px; height: 3px;
+    background-color: #C5A059;
+    border-radius: 2px;
+    margin: 0 auto 1rem;
+}
+
+@media (max-width: 768px) {
+    .fiesta-header { height: 250px; }
+    .fiesta-header h1 { font-size: 2rem; }
+}
+
+/* Clase para el título de sección con el verde */
+.titulo-seccion {
+    border-left: 6px solid var(--gold); 
+    padding-left: 15px;
+    line-height: 1.1;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 900 !important; /* Negritas resaltadas como pediste */
+    letter-spacing: 1px;
+}
+
+/* El divisor curvo blanco se mantiene pero se ajusta */
+.custom-shape-divider-bottom-1710000000 {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    line-height: 0; 
+    transform: rotate(180deg);
+    z-index: 2;
+}
+
+.custom-shape-divider-bottom-1710000000 svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 40px; /* Un poco más bajo para no comerse el texto */
+    fill: #fdfdfd; 
+}

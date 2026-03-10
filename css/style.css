@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+:root {
+    --gold: #C5A059;
+    --dark: #121212;
+}
+
+body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; overflow-x: hidden; }
+
+/* Navbar Superior */
+.navbar { background: var(--dark) !important; padding: 1.5rem 0; }
+.navbar-brand { font-weight: 900; letter-spacing: 2px; font-size: 1.8rem; color: white !important; }
+
+.logo-img {
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: rotate(-5deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* Cards de Producto */
+.product-card {
+    border: none;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #fff;
+}
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.btn-add {
+    background: var(--dark);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-add:hover { background: var(--gold); color: white; }
+
+/* Carrito Sidebar */
+#cart-sidebar {
+    position: fixed; right: -400px; top: 0; width: 380px; height: 100%;
+    background: white; z-index: 2000; transition: 0.4s; padding: 30px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+}
+#cart-sidebar.active { right: 0; }
+#cart-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); z-index: 1999; display: none;
+}
+#cart-overlay.active { display: block; }
+
+/* Animaciones del Carrito */
+.cart-pop {
+    animation: cart-bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: var(--gold) !important;
+}
+@keyframes cart-bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.8); }
+    100% { transform: scale(1); }
+}
+.cart-icon-shake { animation: shake 0.4s ease-in-out; }
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+}
+
+/* Responsivo */
+@media (max-width: 991.98px) {
+    .navbar-collapse { background-color: var(--dark); margin-top: 15px; border-radius: 15px; padding: 10px; }
+    .logo-img { width: 45px; height: 45px; }
+}
+
+#cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 2000;
+     transition: all 0.4s ease-in-out;
+    display: flex; /* IMPORTANTE */
+    flex-direction: column; /* IMPORTANTE */
+    right: -400px; /* Escondido */
+}
+
+#cart-sidebar.active {
+    right: 0; /* Visible */
+}
+
+/*Boton vaciar carrito*/
+.btn-vaciar-carrito {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff1f0; /* Un rojo muy tenue de fondo */
+    color: #d93025; /* Rojo elegante para el texto */
+    border: 1px dashed #ffa39e; /* Borde punteado para que no compita con el botón principal */
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-vaciar-carrito:hover {
+    background-color: #ffccc7; /* Se oscurece un poco al pasar el mouse */
+    border-style: solid; /* El borde se vuelve sólido */
+    transform: translateY(-1px); /* Pequeño levante visual */
+}
+
+.btn-vaciar-carrito:active {
+    transform: translateY(0);
+}
+
+/*logo grande*/
+/* Contenedor del logo para reservar el espacio */
+.navbar-brand div {
+    width: 80px; 
+    height: 1px; /* Altura mínima para no empujar la navbar */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.logo-grande {
+    width: 85px !important;
+    height: 85px !important;
+    position: absolute;
+    /* Centrado vertical perfecto sin animaciones de movimiento */
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: width 0.3s ease, height 0.3s ease; /* Solo suaviza el cambio de tamaño si decides escalarlo */
+}
+
+/* Eliminamos cualquier margen que separe VENTAS de SILVA */
+.navbar-brand span {
+    margin-left: 10px !important; /* Espacio pequeño y fijo respecto al logo */
+    display: flex;
+    gap: 5px; /* Controla la separación exacta entre VENTAS y SILVA */
+}
+
+/* Si quieres que al pasar el mouse NO haga nada, deja esto vacío. 
+   Si quieres que solo brille un poco, usa esto: */
+.logo-grande:hover {
+    filter: brightness(1.1);
+}
+
+/* Forzar que el sidebar sea una columna flexible de altura completa */
+#cart-sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh; /* Altura de toda la pantalla */
+    padding: 20px;
+}
+
+/* El contenedor de items toma todo el espacio sobrante y activa el scroll */
+#cart-items {
+    flex: 1; 
+    overflow-y: auto; 
+    padding-right: 5px; /* Evita que el scroll tape los botones de 'Quitar' */
+}
+
+/* Opcional: Estilo de la barra de scroll para que combine con Ventas Silva */
+.custom-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #d4af37; 
+    border-radius: 10px;
+}
+
+/* Asegura que la alerta siempre esté por encima de TODO, incluso del carrito */
+.swal2-container {
+    z-index: 3000 !important; /* Más alto que el sidebar y el overlay */
+}
+
+/* Evita que el overlay del carrito capture eventos mientras la alerta está abierta */
+body.swal2-shown {
+    overflow: hidden;
+}

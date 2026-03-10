@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frutas.css">
+    <title>Ventas Silva | Frutas y Frescos</title>
+    <style>
+        :root { --accent-green: #2d5a27; }
+        .category-header {
+            border-left: 5px solid var(--accent-green);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="background: #1a1a1a;">
+    <div class="container d-flex align-items-center">
+        
+        <a class="navbar-brand d-flex align-items-center fw-bold me-auto" href="index.html">
+    <!-- El div reserva el espacio para que el texto no se encime -->
+    <div style="width: 85px;">
+        <img src="imagenes/logofrut.png" alt="Logo" class="logo-img rounded-circle border border-2 border-warning logo-grande">
+    </div>
+    <!-- Juntamos las palabras con ms-2 (margin start) -->
+    <span class="d-none d-sm-flex align-items-center ms-2">
+        VENTAS <span class="ms-1" style="color:#d4af37">SILVA</span>
+    </span>
+</a>
+
+        <!-- ... resto del código del carrito y menú (no cambia) ... -->
+        <div class="order-lg-last ms-3">
+            <button class="btn btn-outline-light border-0 position-relative" onclick="toggleCart()">
+                <i class="bi bi-cart3 fs-3"></i>
+                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+            </button>
+        </div>
+
+        <button class="navbar-toggler border-0 ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-center" id="navbarNav">
+            <ul class="navbar-nav mx-auto text-uppercase fw-bold">
+                <li class="nav-item px-lg-3"><a class="nav-link " href="index.html">Inicio</a></li>
+                <li class="nav-item px-lg-3"><a class="nav-link" href="licores.html">Vinos y Licores</a></li>
+                <li class="nav-item px-lg-3"><a class="nav-link active" href="frutas_y_mas.html">Frutas y Frescos</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+   <!-- Header Mercado Fresco Llamativo -->
+<header class="mercado-header position-relative d-flex align-items-center justify-content-center text-center overflow-hidden">
+    <div class="mercado-overlay"></div>
+    <div class="container position-relative z-3">
+        <h1 class="display-3 fw-bold text-white mb-2">MERCADO <span class="text-light-green">FRESCO</span></h1>
+        <p class="fs-5 text-white-50 mx-auto" style="max-width: 600px;">
+            Calidad premium en cada cosecha. Seleccionamos lo mejor de la temporada especialmente para tu mesa.
+        </p>
+    </div>
+    <!-- Onda decorativa en la parte inferior -->
+    <div class="custom-shape-divider-bottom-1710000000">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,112.49,123.39,110.3,181.77,93.32,241.12,76.07,262.36,64.78,321.39,56.44Z" fill="#ffffff"></path>
+        </svg>
+    </div>
+</header>
+
+  <main class="container my-5">
+    
+    <!-- ==========================================
+         SECCIÓN 1: FRUTAS DE TEMPORADA 
+    =========================================== -->
+        <div class="container my-5">
+    <div class="mb-4">
+        <h2 class="titulo-seccion text-success">Frutas de Temporada</h2>
+    </div>
+
+    <!-- Fila de Frutas -->
+    <div class="row g-4 mb-5 row-cols-2 row-cols-md-3 row-cols-lg-3">
+        <!-- Uva Verde -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/uva.png" class="card-img-top mx-auto mb-3" alt="Uva Verde" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Uva Verde</h4>
+                <p class="text-muted fs-6">Uva sin semilla 900gr</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$90.00</p>
+                <div id="btn-container-UvaVerde">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Uva Verde', 90, 'UvaVerde')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fresa Domo -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/fresa.png" class="card-img-top mx-auto mb-3" alt="Fresa Domo" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Fresa Domo</h4>
+                <p class="text-muted fs-6">Charola de 1/2kilo</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$35.00</p>
+                <div id="btn-container-FresaDomo">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Fresa Domo', 35, 'FresaDomo')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arandano -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/arandano.png" class="card-img-top mx-auto mb-3" alt="Arandano" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Arándano</h4>
+                <p class="text-muted fs-6">Charola de 1/4kl</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$45.00</p>
+                <div id="btn-container-Arandano">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Arandano', 45, 'Arandano')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Frambuesa -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/frambuesa.png" class="card-img-top mx-auto mb-3" alt="Frambuesa" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Frambuesa</h4>
+                <p class="text-muted fs-6">Charola de 1/4</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$35.00</p>
+                <div id="btn-container-Frambuesa">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Frambuesa', 35, 'Frambuesa')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zarzamora -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/zarzamora.png" class="card-img-top mx-auto mb-3" alt="Zarzamora" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Zarzamora</h4>
+                <p class="text-muted fs-6">Charola de 1/4</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$25.00</p>
+                <div id="btn-container-Zarzamora">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Zarzamora', 25, 'Zarzamora')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SECCIÓN 2: OTROS PRODUCTOS 
+    =========================================== -->
+    <div class="mb-4 mt-4 pt-4">
+           <div class="container my-5">
+    <div class="mb-4">
+        <h2 class="titulo-seccion text-success">Otros Productos</h2>
+    </div>
+
+    <!-- Fila de Otros Productos (Mismo orden y clases que la de arriba) -->
+    <div class="row g-4 mb-5 row-cols-2 row-cols-md-3 row-cols-lg-3">
+        
+        <!-- Huevo Orgánico -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/huevo.png" class="card-img-top mx-auto mb-3" alt="Huevo Orgánico" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Huevo Orgánico</h4>
+                <p class="text-muted fs-6">Calidad Premium</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$100.00</p>
+                <div id="btn-container-HuevoOrganico">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Huevo Organico', 100, 'HuevoOrganico')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fresas con Crema -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/crema.png" class="card-img-top mx-auto mb-3" alt="Fresas con Crema" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Fresas con Crema</h4>
+                <p class="text-muted fs-6">Vaso preparado</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$55.00</p>
+                <div id="btn-container-FresasCrema">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Fresas con crema', 55, 'FresasCrema')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hielito -->
+        <div class="col">
+            <div class="product-card p-4 shadow-sm h-100 text-center border-0">
+                <img src="imagenes/crema.png" class="card-img-top mx-auto mb-3" alt="Hielito de Fresa" style="height: 200px; object-fit: contain;">
+                <h4 class="fw-bold mb-2">Hielito de Fresa</h4>
+                <p class="text-muted fs-6">Fresas con crema</p>
+                <p class="fs-3 fw-bold text-dark mb-3">$20.00</p>
+                <div id="btn-container-HielitoFresa">
+                    <button class="btn btn-add w-100 py-2 fs-5" onclick="addToCart('Hielito de fresas con crema', 20, 'HielitoFresa')">+ Añadir</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+      
+<!-- Carrito (Estructura Actualizada para Scroll) -->
+<div id="cart-overlay" onclick="toggleCart()"></div>
+<div id="cart-sidebar" class="d-flex flex-column">
+    <!-- Encabezado Fijo -->
+    <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+        <h4 class="fw-bold mb-0">MI PEDIDO</h4>
+        <button class="btn-close" onclick="toggleCart()"></button>
+    </div>
+
+    <!-- Área de Productos con Scroll -->
+    <div id="cart-items" class="flex-grow-1 overflow-auto custom-scroll">
+        <!-- Los productos se cargan aquí dinámicamente -->
+    </div>
+
+    <!-- Pie de Carrito Fijo Abajo -->
+    <div class="mt-auto pt-3 border-top bg-white">
+        <div class="d-flex justify-content-between fs-4 fw-bold">
+            <span>Total:</span>
+            <span id="cart-total">$0.00</span>
+        </div>
+        <button class="btn btn-dark w-100 py-3 mt-4 fw-bold shadow" onclick="sendWhatsApp()">
+            CONFIRMAR POR WHATSAPP
+        </button>
+        <button class="btn-vaciar-carrito w-100 mt-2" onclick="clearCart()">
+        <i class="bi bi-trash3"></i> VACIAR TODO EL CARRITO        
+        </button>
+    </div>
+</div>
+
+
+    <!-- Scripts: Bootstrap va después de cart.js para evitar conflictos -->
+    <script src="cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
