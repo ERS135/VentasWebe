@@ -195,3 +195,94 @@ body.swal2-shown {
     overflow: hidden;
 }
 
+@media (max-width: 401px) {
+    /* El contenedor del Navbar debe ser relativo para que el absoluto funcione */
+    .navbar .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 60px;
+    }
+
+    /* Centrado absoluto del título */
+    .brand-container-central {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: auto;
+        white-space: nowrap;
+        z-index: 1;
+    }
+
+    .brand-text {
+        font-size: 1.80rem !important; /* Ajusta según tu gusto */
+        font-weight: 800;
+        display: flex;
+        flex-direction: column; /* Apila Ventas y Silva para ganar espacio lateral */
+        line-height: 1;
+    }
+
+    /* Aseguramos que el logo y botones no tapen el título */
+    .logo-grande {
+        width: 75px !important;
+        height: 75px !important;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    /* 1. Resetear el contenedor para que los elementos se repartan a lo largo */
+    .navbar .container {
+        position: static !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        max-width: 1300px; /* Opcional: para que no se pegue tanto a las orillas */
+    }
+
+    /* 2. El Logo y el Texto se quedan juntos a la izquierda */
+    .brand-container-central {
+        position: static !important; /* Quita el flotado del centro */
+        transform: none !important; /* Quita el ajuste de centrado */
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        flex: 0 1 auto; /* No deja que el nombre empuje de más */
+    }
+
+    /* 3. Texto en horizontal y "VENTAS" en blanco */
+    .brand-text {
+        color: #ffffff !important;
+        font-size: 1.5rem !important;
+        display: flex !important;
+        flex-direction: row !important; /* Pone Silva al lado de Ventas */
+        gap: 10px;
+        margin-left: 15px;
+        font-weight: 800;
+    }
+
+    /* 4. El Menú de navegación se queda al centro */
+    .navbar-collapse {
+        flex-grow: 1;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* 5. El Carrito se va hasta la derecha */
+    .d-none.d-lg-flex {
+        display: flex !important;
+        justify-content: flex-end;
+        flex: 0 1 auto;
+    }
+
+    /* Ajuste del tamaño del logo en PC */
+    .logo-grande {
+        width: 60px !important;
+        height: 60px !important;
+        position: static !important;
+    }
+}
