@@ -61,3 +61,18 @@
     height: 40px; /* Un poco más bajo para no comerse el texto */
     fill: #fdfdfd; 
 }
+
+@media (max-width: 576px) {
+    .title-producto { font-size: 0.9rem !important; }
+    .precio-texto { font-size: 1.1rem !important; }
+    .fs-small { font-size: 0.75rem !important; }
+    .btn-sm-custom { font-size: 0.8rem !important; padding: 6px !important; }
+    /* Ajuste de imagen para móviles */
+    .card-img-top { height: 120px !important; }
+}
+
+/* En PC se mantienen los tamaños originales */
+@media (min-width: 768px) {
+    .card-img-top { height: 200px !important; }
+    .precio-texto { font-size: 1.8rem !important; }
+}
