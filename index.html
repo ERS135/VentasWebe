@@ -14,40 +14,46 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm" style="background: #1a1a1a;">
     <div class="container d-flex align-items-center justify-content-between">
         
-        <!-- Lado Izquierdo: Logo y Nombre -->
-        <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html" style="margin-right: 0;">
-            <div class="logo-container me-2">
-                <img src="imagenes/logofrut.png" alt="Logo" class="logo-img rounded-circle border border-2 border-warning logo-grande">
-            </div>
-            <span class="brand-text">
-                VENTAS <span class="ms-1" style="color:#d4af37">SILVA</span>
-            </span>
-        </a>
+        <!-- Lado Izquierdo: Logo (w-auto en PC, w-100 en móvil para empujar lo demás) -->
+        <div class="d-flex align-items-center justify-content-between flex-grow-1 flex-lg-grow-0 w-sm-100">
+            <a class="navbar-brand d-flex align-items-center fw-bold m-0" href="index.html">
+                <div class="logo-container me-2">
+                    <img src="imagenes/logofrut.png" alt="Logo" class="logo-img rounded-circle border border-2 border-warning logo-grande">
+                </div>
+                <span class="brand-text">
+                    VENTAS <span class="ms-1" style="color:#d4af37">SILVA</span>
+                </span>
+            </a>
 
-        <!-- Lado Derecho: Grupo de Iconos (Carrito y Menú) -->
-        <div class="d-flex align-items-center order-lg-last">
-            <!-- Botón Carrito -->
-            <div class="me-2 me-sm-3">
-                <button class="btn btn-outline-light border-0 position-relative p-1" onclick="toggleCart()">
+            <!-- Este bloque SOLO se ve en móvil (Contiene Carrito y Hamburguesa) -->
+            <div class="d-flex align-items-center d-lg-none">
+                <button class="btn btn-outline-light border-0 position-relative p-1 me-2" onclick="toggleCart()">
                     <i class="bi bi-cart3 fs-3"></i>
                     <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">0</span>
                 </button>
+                <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-
-            <!-- Botón Hamburguesa -->
-            <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
 
-        <!-- Links del Menú (Colapsables) -->
-        <div class="collapse navbar-collapse text-center" id="navbarNav">
-            <ul class="navbar-nav mx-auto text-uppercase fw-bold pt-3 pt-lg-0">
+        <!-- Centro: Menú (Aparece abajo en móvil, al centro en PC) -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav text-uppercase fw-bold pt-3 pt-lg-0">
                 <li class="nav-item px-lg-3"><a class="nav-link active" href="index.html">Inicio</a></li>
                 <li class="nav-item px-lg-3"><a class="nav-link" href="licores.html">Vinos y Licores</a></li>
                 <li class="nav-item px-lg-3"><a class="nav-link" href="frutas_y_mas.html">Frutas y Frescos</a></li>
             </ul>
         </div>
+
+        <!-- Derecha: Carrito SOLO para pantallas grandes (Escritorio) -->
+        <div class="d-none d-lg-flex align-items-center">
+            <button class="btn btn-outline-light border-0 position-relative p-1" onclick="toggleCart()">
+                <i class="bi bi-cart3 fs-3"></i>
+                <span id="cart-count-desktop" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">0</span>
+            </button>
+        </div>
+
     </div>
 </nav>
 
